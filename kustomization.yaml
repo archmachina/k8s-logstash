@@ -8,7 +8,6 @@ configMapGenerator:
   - name: logstash-pipeline-config
     files:
       - config/0001_input_beats.conf
-      # - config/0101_filter_fingerprint.conf
       - config/0102_timestamp.conf
       - config/0201_output_beats.conf
 
