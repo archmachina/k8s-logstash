@@ -1,0 +1,37 @@
+---
+
+kind: Kustomization
+
+configMapGenerator:
+  - name: logstash-pipeline-files
+    files:
+      - files/0001_input_beats.conf
+      - files/0102_filter.conf
+      - files/0201_output_beats.conf
+
+  - name: logstash-config
+    literals:
+      - replicas=1
+      - elasticwait_cert_verify=0
+      - elasticwait_time_wait=30
+      - elasticwait_max_attempts=60
+      - elastic_host=elastic-svc
+      - elastic_port=9200
+      - java_opts=-Xms1g -Xmx1g
+      - elastic_uri=https://elastic-svc:9200
+      - xpack_monitoring_uri=[\"https://elastic-svc:9200\"]
+      - ingress_host_port=5044
+
+  - name: logstash-files
+    files:
+      - ingress.cfg=files/ingress.cfg
+
+secretGenerator:
+  - name: logstash-cert
+    type: Opaque
+
+  - name: logstash-credentials
+    type: Opaque
+    # literals:
+    #   - elastic_username=changeme
+    #   - elastic_password=changeme
