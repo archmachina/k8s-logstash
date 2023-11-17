@@ -19,7 +19,7 @@ configMapGenerator:
       - elastic_port=9200
       - java_opts=-Xms1g -Xmx1g
       - elastic_uri=https://elastic-svc:9200
-      - xpack_monitoring_uri=[\"https://elastic-svc:9200\"]
+      - xpack_monitoring_uri=["https://elastic-svc:9200"]
       - ingress_host_port=5044
 
   - name: logstash-files

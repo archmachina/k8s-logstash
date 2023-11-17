@@ -76,7 +76,7 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: logstash-config
-                  key: xpax_monitoring_uri
+                  key: xpack_monitoring_uri
             - name: XPACK_MONITORING_ELASTICSEARCH_SSL_CERTIFICATE_AUTHORITY
               value: /usr/share/logstash/certs/ca.crt
             - name: XPACK_MONITORING_ELASTICSEARCH_USERNAME
