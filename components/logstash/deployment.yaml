@@ -16,9 +16,6 @@ spec:
         component: logstash
     spec:
       volumes:
-        - name: elastic-ca-cert
-          secret:
-            secretName: elastic-ca-cert
         - name: logstash-pipeline-files
           configMap:
             name: logstash-pipeline-files
@@ -103,9 +100,6 @@ spec:
                   name: logstash-credentials
                   key: elastic_password
           volumeMounts:
-            - name: elastic-ca-cert
-              mountPath: /usr/share/logstash/certs/
-              readOnly: true
             - name: logstash-pipeline-files
               mountPath: /usr/share/logstash/pipeline
           ports:
