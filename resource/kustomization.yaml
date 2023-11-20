@@ -27,8 +27,8 @@ configMapGenerator:
       - ingress.cfg=files/ingress.cfg
 
 secretGenerator:
-  - name: logstash-certs
-    type: Opaque
+  # - name: logstash-cert
+  #   type: Opaque
 
   - name: logstash-credentials
     type: Opaque
